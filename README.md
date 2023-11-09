@@ -1,5 +1,7 @@
 # POWERHUB
 
+<img align="left" alt="repo-cover"  src="/public/repo-cover.png">
+
 Allows users to manage and track their electric vehicles (EVs) with a focus on battery charging and GPS integration. This app is built using modern technologies, providing a seamless experience for users.
 
 ## Features
