@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CreatePost } from "@/app/_components/create-post";
+import { CreatePost } from "@/components/create-post";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 
@@ -55,6 +55,9 @@ export default async function Home() {
             </Link>
           </div>
         </div>
+        <Link href="/powerhub">
+          <span className="text-2xl font-bold underline">Dashboard</span>
+        </Link>
 
         <CrudShowcase />
       </div>
