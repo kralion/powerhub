@@ -1,6 +1,6 @@
-# EV Car Management Fullstack App
+# POWERHUB
 
-This is the readme file for the EV Car Management Fullstack App, which allows users to manage and track their electric vehicles (EVs) with a focus on battery charging and GPS integration. This app is built using modern technologies, providing a seamless experience for users.
+Allows users to manage and track their electric vehicles (EVs) with a focus on battery charging and GPS integration. This app is built using modern technologies, providing a seamless experience for users.
 
 ## Features
 
