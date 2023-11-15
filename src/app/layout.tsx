@@ -1,11 +1,12 @@
 import "@/styles/globals.css";
+import { Inter as FontSans } from "next/font/google";
 
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
-
+import { cn } from "@/lib/utils";
 import { TRPCReactProvider } from "@/trpc/react";
 
-const inter = Inter({
+export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -22,8 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          "bg-background min-h-screen font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
         </TRPCReactProvider>
