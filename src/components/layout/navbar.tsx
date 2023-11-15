@@ -1,9 +1,11 @@
+"use client";
 import React from "react";
 import { GoHomeFill } from "react-icons/go";
 import { BsCalendarMinusFill } from "react-icons/bs";
 import { HiChartPie, HiClock } from "react-icons/hi";
 import { RiSettingsFill } from "react-icons/ri";
 import { BiSolidLogOut } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
 const navLink = [
   {
@@ -36,6 +38,7 @@ const navLink = [
 import Image from "next/image";
 import Link from "next/link";
 function Navbar() {
+  const pathname = usePathname();
   return (
     <div className="flex flex-col gap-64 ">
       <div className="space-y-8 text-[14px] text-slate-400">
@@ -68,8 +71,8 @@ function Navbar() {
             <span className=" text-[11px] text-slate-300">Tesla Model X</span>
           </p>
         </div>
-        <button className="flex items-center gap-3 text-sm text-slate-300">
-          <BiSolidLogOut />
+        <button className="flex items-center gap-3 text-sm text-slate-300 duration-150 hover:text-rose-500 ">
+          <BiSolidLogOut size={20} />
           Log out
         </button>
       </section>
