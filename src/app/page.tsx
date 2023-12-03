@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CreatePost } from "@/components/create-post";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
+import Machine from "@/components/machine";
 
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
@@ -55,6 +56,9 @@ export default async function Home() {
             </Link>
           </div>
         </div>
+
+        <Machine />
+
         <Link href="/powerhub">
           <span className="text-2xl font-bold underline">Dashboard</span>
         </Link>
