@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import { CreatePost } from "@/components/create-post";
+import { CreatePost } from "@/components/create-car";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import Machine from "@/components/machine";
 
 export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
+  const hello = await api.cars.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
 
   return (
@@ -73,7 +73,7 @@ async function CrudShowcase() {
   const session = await getServerAuthSession();
   if (!session?.user) return null;
 
-  const latestPost = await api.post.getLatest.query();
+  const latestPost = await api.cars.getLatest.query();
 
   return (
     <div className="w-full max-w-xs">
