@@ -5,10 +5,11 @@ import SearchIcon from "@/assets/images/search.png";
 import StationCard from "./station-card";
 import NavigationMap from "@/assets/images/navigation-map.jpg";
 import NextIcon from "@/assets/images/next.png";
+import StationsCarousel from "./stations-carousel";
 
 function Content() {
   return (
-    <div className="flex flex-col justify-between w-full h-screen gap-4 p-5 text-2xl text-white ">
+    <div className="flex h-screen w-2/3 flex-col justify-between p-5 text-2xl text-white ">
       <section className="flex items-center justify-between ">
         <div className="flex items-center gap-2 ">
           <div>
@@ -22,7 +23,7 @@ function Content() {
           <h3 className="text-xl">Warsaw, Poland</h3>
         </div>
         <div className="relative ">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
             <Image
               src={SearchIcon}
               alt="Location Icon"
@@ -33,7 +34,7 @@ function Content() {
           <input
             type="text"
             id="input-group-1"
-            className="   text-sm rounded-2xl  block w-full pl-10 p-2.5 focus:outline-0 bg-[#2D2D2D]  placeholder-gray-400 text-gray-400  "
+            className="   block w-full  rounded-2xl bg-[#2D2D2D] p-2.5 pl-10 text-sm text-gray-400  placeholder-gray-400 focus:outline-0  "
             placeholder="Search"
           />
         </div>
@@ -47,42 +48,9 @@ function Content() {
           height={640}
         />
       </section>
-      <section>
-        <h3 className="my-3 text-sm ml-5">12 Stations Nearby</h3>
-        <div className="flex justify-center gap-7">
-          <StationCard
-            classification="Tesla Station"
-            distance={1.2}
-            chargerType="DC"
-            chargerPrice={2}
-            slots={5}
-          />
-          <StationCard
-            classification="Shell Station"
-            chargerType="DC"
-            chargerPrice={2}
-            distance={3.8}
-            slots={5}
-          />
-
-          <StationCard
-            classification="Supercharger"
-            chargerType="DC"
-            chargerPrice={8}
-            distance={5.1}
-            slots={12}
-          />
-          <button>
-            <Image
-              title="Next Page"
-              src={NextIcon}
-              className="bg-[#212121] hover:scale-125 duration-200 rounded-full p-1 w-7 shadow-white shadow-sm"
-              alt="next"
-              width={20}
-              height={20}
-            />
-          </button>
-        </div>
+      <section className="space-y-4">
+        <h3 className="text-sm">12 Stations Nearby</h3>
+        <StationsCarousel />
       </section>
     </div>
   );

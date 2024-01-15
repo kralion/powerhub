@@ -1,0 +1,51 @@
+[
+  {
+    "classification": "Tesla Station",
+    "distance": 1.2,
+    "chargerType": "DC",
+    "chargerPrice": 2,
+    "slots": 5
+  },
+  {
+    "classification": "Shell Station",
+    "distance": 3.8,
+    "chargerType": "DC",
+    "chargerPrice": 2,
+    "slots": 5
+  },
+  {
+    "classification": "BP Station",
+    "distance": 2.5,
+    "chargerType": "AC",
+    "chargerPrice": 1.5,
+    "slots": 4
+  },
+  {
+    "classification": "Chevron Station",
+    "distance": 4.2,
+    "chargerType": "DC",
+    "chargerPrice": 2.5,
+    "slots": 6
+  },
+  {
+    "classification": "Exxon Station",
+    "distance": 3.1,
+    "chargerType": "AC",
+    "chargerPrice": 1.8,
+    "slots": 3
+  },
+  {
+    "classification": "Mobil Station",
+    "distance": 2.8,
+    "chargerType": "DC",
+    "chargerPrice": 2.2,
+    "slots": 4
+  },
+  {
+    "classification": "Sunoco Station",
+    "distance": 5.0,
+    "chargerType": "AC",
+    "chargerPrice": 1.7,
+    "slots": 5
+  }
+]

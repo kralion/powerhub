@@ -5,7 +5,7 @@ import Navbar from "./navbar";
 
 function Sidebar() {
   return (
-    <div className="flex h-screen w-80 flex-col gap-10 rounded-r-3xl  bg-[#2D2D2D]  p-7">
+    <div className="flex h-screen flex-col gap-8 rounded-r-3xl  bg-[#2D2D2D]  p-6">
       <Header />
       <Navbar />
     </div>
