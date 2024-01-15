@@ -1,14 +1,8 @@
 import "@/styles/globals.css";
-import { Inter as FontSans } from "next/font/google";
 
 import { cookies } from "next/headers";
 import { cn } from "@/lib/utils";
 import { TRPCReactProvider } from "@/trpc/react";
-
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata = {
   title: "Create T3 App",
@@ -23,12 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-background min-h-screen font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body className={cn("min-h-screen bg-background antialiased")}>
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
         </TRPCReactProvider>
