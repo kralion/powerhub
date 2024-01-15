@@ -4,6 +4,7 @@ import type { Station } from "@/types";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FiCornerUpRight } from "react-icons/fi";
+import StationDrawer from "./station-drawer";
 
 function StationCard({
   classification,
@@ -16,12 +17,13 @@ function StationCard({
     <div className="w-56 space-y-4 rounded-2xl bg-[#212121] p-3 text-sm duration-150 hover:bg-[#2D2D2D]">
       <div className="flex justify-between">
         <Image src={StationIcon} alt="station" width={50} height={50} />
-        <ChevronRight
-          onClick={() => {
-            alert("clicked");
-          }}
-          className="cursor-pointer p-1 active:opacity-70"
-          size={25}
+        <StationDrawer
+          drawerTrigger={
+            <ChevronRight
+              className="cursor-pointer p-1 active:opacity-70"
+              size={25}
+            />
+          }
         />
       </div>
       <div className=" flex justify-between">
