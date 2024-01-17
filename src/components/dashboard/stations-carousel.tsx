@@ -14,7 +14,7 @@ export default function StationsCarousel() {
   return (
     <Carousel
       opts={{
-        align: "start",
+        align: "center",
       }}
     >
       <CarouselContent>

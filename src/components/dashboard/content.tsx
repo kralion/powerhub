@@ -48,7 +48,7 @@ function Content() {
           height={640}
         />
       </section>
-      <section className="space-y-4">
+      <section className="space-y-4 px-16">
         <h3 className="text-sm">12 Stations Nearby</h3>
         <StationsCarousel />
       </section>

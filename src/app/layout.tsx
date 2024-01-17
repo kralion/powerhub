@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background antialiased")}>
+      <body className={cn("min-h-screen bg-background antialiased ")}>
         <TRPCReactProvider cookies={cookies().toString()}>
           {children}
           <Toaster />
