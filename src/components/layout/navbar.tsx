@@ -69,7 +69,7 @@ function Navbar() {
             <span className=" text-sm font-medium leading-tight text-white">
               Jhon Ferreiros
             </span>
-            <span className=" text-xs text-slate-300">Tesla Model X</span>
+            <span className=" text-xs text-slate-300">Tesla Model 3</span>
           </p>
         </div>
         <button className="flex items-center gap-3 text-sm text-slate-300 duration-150 hover:text-rose-500 active:opacity-60 ">

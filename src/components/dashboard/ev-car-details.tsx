@@ -3,7 +3,7 @@ import EVCarOverview from "@/assets/images/ev-car.png";
 import GPSRoute from "@/assets/images/gps-route.png";
 import type { Vehicle } from "@/types/vehicle";
 import React from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 import { FiCornerUpRight } from "react-icons/fi";
 import {
@@ -46,6 +46,37 @@ function EVCarDetails({
             width={300}
             height={300}
           />
+        }
+        successText="Got it"
+        image={EVCarOverview}
+        title="EV Car Information "
+        description={
+          <div className="flex flex-col gap-8">
+            <span className="text-gray-400">
+              <strong>The Tesla Model 3</strong> is a battery electric mid-size
+              sedan with a fastback body style built by Tesla, Inc. since 2017.
+              The Model 3 was marketed as being more affordable to more people
+              than previous models by Tesla.
+            </span>
+            <div className="flex justify-between">
+              <div className="flex flex-col gap-1 text-white">
+                <span className="text-xs  text-gray-400">Model</span>
+                <span className="font-semibold">Tesla 3S</span>
+              </div>
+              <div className="flex flex-col gap-1 text-white">
+                <span className="text-xs text-gray-400 ">Model Year</span>
+                <span className="font-semibold">2017</span>
+              </div>
+              <div className="flex flex-col gap-1 text-white">
+                <span className="text-xs text-gray-400">Weight</span>
+                <span className="font-semibold ">1.3 Tons</span>
+              </div>
+              <div className="flex flex-col gap-1 text-white">
+                <span className="text-xs text-gray-400">Mileage</span>
+                <span className="font-semibold ">12000 Km</span>
+              </div>
+            </div>
+          </div>
         }
       />
 
@@ -126,35 +157,41 @@ function EVCarDetails({
 
 export default EVCarDetails;
 
-function CarDetailsAlert({ trigger }: { trigger: React.ReactNode }) {
+type CarDetailsAlertProps = {
+  trigger: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
+  image: StaticImageData | string;
+  successText?: string;
+};
+
+function CarDetailsAlert({
+  trigger,
+  title,
+  description,
+  image,
+  successText = "Okay",
+}: CarDetailsAlertProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>{title}</AlertDialogTitle>
           <AlertDialogDescription>
             <Image
-              src={EVCarOverview}
-              className="cursor-zoom-in rounded-2xl"
-              onClick={
-                () => {
-                  console.log("clicked");
-                }
-                // router.push(`/dashboard/ev-car/${id}`)
-              }
-              alt="ev car"
+              src={image}
+              alt="asset"
               width={500}
               height={500}
               title="Details"
             />
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            {description}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogAction>{successText}</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
