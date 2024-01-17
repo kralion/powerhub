@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { cookies } from "next/headers";
 import { cn } from "@/lib/utils";
 import { TRPCReactProvider } from "@/trpc/react";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
   title: "Create T3 App",
@@ -19,10 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background antialiased ")}>
-        <TRPCReactProvider cookies={cookies().toString()}>
-          {children}
-          <Toaster />
-        </TRPCReactProvider>
+        <ThemeProvider
+          attribute="dark"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TRPCReactProvider cookies={cookies().toString()}>
+            {children}
+            <Toaster />
+          </TRPCReactProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
