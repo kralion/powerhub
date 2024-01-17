@@ -30,7 +30,7 @@ export default function StationsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
+      <CarouselPrevious  />
       <CarouselNext />
     </Carousel>
   );
