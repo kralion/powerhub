@@ -3,20 +3,11 @@ import EVCarOverview from "@/assets/images/ev-car.png";
 import GPSRoute from "@/assets/images/gps-route.png";
 import type { Vehicle } from "@/types/vehicle";
 import React from "react";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+import { DetailsAlert } from "../alert-dialog";
 
 import { FiCornerUpRight } from "react-icons/fi";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+
 import AvgEnergyGraph from "./avgenergy-graph";
 
 function EVCarDetails({
@@ -30,7 +21,7 @@ function EVCarDetails({
 }: Vehicle) {
   return (
     <div className="space-y-8">
-      <CarDetailsAlert
+      <DetailsAlert
         trigger={
           <Image
             src={EVCarOverview}
@@ -156,44 +147,3 @@ function EVCarDetails({
 }
 
 export default EVCarDetails;
-
-type CarDetailsAlertProps = {
-  trigger: React.ReactNode;
-  title: string;
-  description: React.ReactNode;
-  image: StaticImageData | string;
-  successText?: string;
-};
-
-function CarDetailsAlert({
-  trigger,
-  title,
-  description,
-  image,
-  successText = "Okay",
-}: CarDetailsAlertProps) {
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>{title}</AlertDialogTitle>
-          <AlertDialogDescription>
-            <Image
-              src={image}
-              alt="asset"
-              width={500}
-              height={500}
-              title="Details"
-            />
-            {description}
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>{successText}</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
-}

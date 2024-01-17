@@ -5,6 +5,8 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FiCornerUpRight } from "react-icons/fi";
 import StationDrawer from "./station-drawer";
+import { DetailsAlert } from "../alert-dialog";
+import MapStation from "@/assets/map-station.png";
 
 function StationCard({
   classification,
@@ -17,9 +19,16 @@ function StationCard({
     <div className="w-56 space-y-4 rounded-2xl bg-[#212121] p-3 text-sm duration-150 hover:bg-[#2D2D2D]">
       <div className="flex justify-between">
         <Image src={StationIcon} alt="station" width={50} height={50} />
-        <ChevronRight
-          className="cursor-pointer p-1 active:opacity-70"
-          size={25}
+        <DetailsAlert
+          image={MapStation}
+          title="Station Details"
+          description="This Stations is located 2122 meters from your place "
+          trigger={
+            <ChevronRight
+              className="cursor-pointer active:opacity-80"
+              size={15}
+            />
+          }
         />
       </div>
       <div className=" flex justify-between">
