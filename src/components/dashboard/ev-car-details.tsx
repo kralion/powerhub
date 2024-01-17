@@ -2,7 +2,9 @@ import ElectricIcon from "@/assets/images/electric.png";
 import EVCarOverview from "@/assets/images/ev-car.png";
 import GPSRoute from "@/assets/images/gps-route.png";
 import type { Vehicle } from "@/types/vehicle";
+import React from "react";
 import Image from "next/image";
+
 import { FiCornerUpRight } from "react-icons/fi";
 import {
   AlertDialog,
@@ -27,12 +29,12 @@ function EVCarDetails({
   distance,
 }: Vehicle) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-8">
       <CarDetailsAlert
         trigger={
           <Image
             src={EVCarOverview}
-            className="cursor-zoom-in rounded-2xl"
+            className="cursor-pointer active:opacity-70"
             onClick={
               () => {
                 console.log("clicked");
@@ -40,9 +42,9 @@ function EVCarDetails({
               // router.push(`/dashboard/ev-car/${id}`)
             }
             alt="ev car"
+            title="Details"
             width={300}
             height={300}
-            title="Details"
           />
         }
       />
@@ -124,8 +126,6 @@ function EVCarDetails({
 
 export default EVCarDetails;
 
-import React from "react";
-
 function CarDetailsAlert({ trigger }: { trigger: React.ReactNode }) {
   return (
     <AlertDialog>
@@ -144,8 +144,8 @@ function CarDetailsAlert({ trigger }: { trigger: React.ReactNode }) {
                 // router.push(`/dashboard/ev-car/${id}`)
               }
               alt="ev car"
-              width={300}
-              height={300}
+              width={500}
+              height={500}
               title="Details"
             />
             This action cannot be undone. This will permanently delete your
