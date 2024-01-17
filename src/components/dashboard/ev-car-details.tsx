@@ -4,11 +4,20 @@ import GPSRoute from "@/assets/images/gps-route.png";
 import type { Vehicle } from "@/types/vehicle";
 import Image from "next/image";
 import { FiCornerUpRight } from "react-icons/fi";
-
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import AvgEnergyGraph from "./avgenergy-graph";
 
 function EVCarDetails({
-  id,
   battery,
   batteryStatus,
   range,
@@ -16,17 +25,26 @@ function EVCarDetails({
   ev,
   avgEnergy,
   distance,
-  vehicleOverview,
 }: Vehicle) {
   return (
     <div className="space-y-4">
-      <Image
-        src={vehicleOverview || EVCarOverview}
-        className="cursor-zoom-in rounded-2xl"
-        alt="ev car"
-        width={300}
-        height={100}
-        title="Details"
+      <CarDetailsAlert
+        trigger={
+          <Image
+            src={EVCarOverview}
+            className="cursor-zoom-in rounded-2xl"
+            onClick={
+              () => {
+                console.log("clicked");
+              }
+              // router.push(`/dashboard/ev-car/${id}`)
+            }
+            alt="ev car"
+            width={300}
+            height={300}
+            title="Details"
+          />
+        }
       />
 
       <div className="flex justify-between">
@@ -54,21 +72,19 @@ function EVCarDetails({
         </div>
       </div>
       <div className="flex gap-3">
-        <div className="flex flex-col gap-3">
-          <div className="w-[120px] rounded-2xl bg-[#2D2D2D] ">
-            <p className="p-3">
-              <span className="text-[11px] text-gray-400">Avg Energy</span>
+        <div className="flex w-[120px] flex-col gap-3">
+          <div className="rounded-2xl bg-[#2D2D2D] ">
+            <p className="flex flex-col gap-1 p-3">
+              <span className="text-xs text-gray-400">Avg Energy</span>
               <span className="text-md">
-                <span className="text-xl">{avgEnergy}</span> wh
+                <span className="text-xl font-semibold">{avgEnergy}</span> wh
               </span>
             </p>
             <AvgEnergyGraph />
           </div>
           <div className="rounded-2xl  bg-[#2D2D2D] p-3">
             <p className="space-y-2">
-              <span className="text-[11px]  tracking-wide text-gray-400">
-                Battery Status
-              </span>
+              <span className="text-xs text-gray-400">Battery Status</span>
               <div className="flex items-center">
                 <div>
                   <Image src={ElectricIcon} alt="next" width={20} height={20} />
@@ -80,15 +96,15 @@ function EVCarDetails({
           </div>
         </div>
         <div className="row-span-2 w-full rounded-2xl bg-[#2D2D2D] ">
-          <div className="p-3 ">
-            <span className="text-[11px] text-gray-400">Nearby Station</span>
-            <div className="my-2 flex justify-between">
+          <div className="flex flex-col gap-1 p-3 ">
+            <span className=" text-xs text-gray-400">Nearby Station</span>
+            <div className="flex  justify-between">
               <h3 className="text-xl">
-                <strong> {distance}</strong> km
+                <strong>{distance}</strong> km
               </h3>
 
               <FiCornerUpRight
-                className="bg-dark-primary hover:bg-dark-secondary cursor-pointer rounded p-1"
+                className=" cursor-pointer rounded bg-zinc-700 p-1 active:opacity-70"
                 size="20"
               />
             </div>
@@ -107,3 +123,40 @@ function EVCarDetails({
 }
 
 export default EVCarDetails;
+
+import React from "react";
+
+function CarDetailsAlert({ trigger }: { trigger: React.ReactNode }) {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            <Image
+              src={EVCarOverview}
+              className="cursor-zoom-in rounded-2xl"
+              onClick={
+                () => {
+                  console.log("clicked");
+                }
+                // router.push(`/dashboard/ev-car/${id}`)
+              }
+              alt="ev car"
+              width={300}
+              height={300}
+              title="Details"
+            />
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}

@@ -53,8 +53,8 @@ export default function AvgEnergyGraph() {
       <Tooltip
         trigger="click"
         content={
-          <div className="bg-white p-2 rounded-md shadow-md">
-            <p className="text-[#6053ED] text-sm font-semibold">78%</p>
+          <div className="rounded-md bg-white p-2 shadow-md">
+            <p className="text-sm font-semibold text-[#6053ED]">78%</p>
           </div>
         }
         cursor={{ stroke: "none", strokeWidth: 2 }}
