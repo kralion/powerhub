@@ -17,9 +17,9 @@ export default function StationsCarousel() {
         align: "center",
       }}
     >
-      <CarouselContent>
+      <CarouselContent className="max-w-screen-md">
         {carStations.map((station, index) => (
-          <CarouselItem key={index} className="md:basis-1/3 ">
+          <CarouselItem key={index} className="md:basis-1/3">
             <StationCard
               classification={station.classification}
               chargerPrice={station.chargerPrice}
@@ -30,7 +30,7 @@ export default function StationsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious  />
+      <CarouselPrevious />
       <CarouselNext />
     </Carousel>
   );

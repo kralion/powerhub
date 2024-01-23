@@ -2,14 +2,12 @@ import React from "react";
 import LocationIcon from "@/assets/images/location.png";
 import Image from "next/image";
 import SearchIcon from "@/assets/images/search.png";
-import StationCard from "./station-card";
 import NavigationMap from "@/assets/images/navigation-map.jpg";
-import NextIcon from "@/assets/images/next.png";
 import StationsCarousel from "./stations-carousel";
 
 function Content() {
   return (
-    <div className="flex h-screen w-2/3 flex-col justify-between p-5 text-2xl text-white ">
+    <div className=" space-y-8 p-5 text-2xl text-white ">
       <section className="flex items-center justify-between ">
         <div className="flex items-center gap-2 ">
           <div>
@@ -44,8 +42,8 @@ function Content() {
           className="rounded-2xl"
           src={NavigationMap}
           alt="Location Icon"
-          width={640}
-          height={640}
+          width={740}
+          height={740}
         />
       </section>
       <section className="space-y-4 px-16">
