@@ -29,8 +29,8 @@ const data = [
 
 export default function EVBarChart() {
   return (
-    <ResponsiveContainer width={240} height={170}>
-      <BarChart barSize={10} width={500} height={300} data={data}>
+    <ResponsiveContainer width={240} height={280}>
+      <BarChart barSize={15} data={data}>
         <XAxis
           style={{
             fontSize: "0.8rem",
@@ -38,11 +38,26 @@ export default function EVBarChart() {
           dataKey="uv"
         />
         <Bar
-          style={{
-            borderRadius: "10px",
-          }}
           dataKey="uv"
-          fill="#6053ED"
+          shape={(props: {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+          }) => {
+            const { x, y, width, height } = props;
+            return (
+              <rect
+                x={x}
+                y={y}
+                width={width}
+                height={height}
+                rx={6}
+                ry={6}
+                fill="#6053ED"
+              />
+            );
+          }}
         />
       </BarChart>
     </ResponsiveContainer>

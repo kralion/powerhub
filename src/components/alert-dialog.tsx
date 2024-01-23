@@ -35,11 +35,12 @@ export function DetailsAlert({
           <AlertDialogTitle>{title}</AlertDialogTitle>
           <AlertDialogDescription>
             {image && (
-              <div className="flex justify-center">
+              <div className=" animate__animated animate__fadeIn flex justify-center p-10">
                 <Image
                   src={image}
                   alt="ev car"
                   title="Details"
+                  className="cursor-pointer rounded-2xl active:opacity-70"
                   width={300}
                   height={300}
                 />

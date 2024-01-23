@@ -2,7 +2,6 @@ import React from "react";
 import LocationIcon from "@/assets/images/location.png";
 import Image from "next/image";
 import SearchIcon from "@/assets/images/search.png";
-import NavigationMap from "@/assets/images/navigation-map.jpg";
 import StationsCarousel from "./stations-carousel";
 
 function Content() {
@@ -37,13 +36,13 @@ function Content() {
           />
         </div>
       </section>
-      <section className="flex justify-center">
+      <section className="animate__animated animate__fadeInUp  animate_delay-500 flex justify-center ">
         <Image
           className="rounded-2xl"
-          src={NavigationMap}
+          src="https://img.freepik.com/free-vector/worldwide-global-map-outline-black-background_1017-46153.jpg?w=1800&t=st=1706022868~exp=1706023468~hmac=4d529c179289ee86123f2955b798bf438d2a3c711cdca3b449e2c5ae96f16473"
           alt="Location Icon"
-          width={740}
-          height={740}
+          width={900}
+          height={900}
         />
       </section>
       <section className="space-y-4 px-16">

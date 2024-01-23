@@ -54,7 +54,7 @@ function Stats() {
             }
           />
         </div>
-        <div className="rounded-2xl bg-[#2D2D2D] p-2 text-2xl text-white">
+        <div className=" rounded-2xl bg-[#2D2D2D] p-2 text-2xl text-white">
           <EVBarChart />
         </div>
       </section>

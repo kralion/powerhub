@@ -9,6 +9,7 @@ import { DetailsAlert } from "../alert-dialog";
 import { FiCornerUpRight } from "react-icons/fi";
 
 import AvgEnergyGraph from "./avgenergy-graph";
+import { Badge } from "../ui/badge";
 
 function EVCarDetails({
   battery,
@@ -126,10 +127,53 @@ function EVCarDetails({
               <h3 className="text-xl">
                 <strong>{distance}</strong> km
               </h3>
-
-              <FiCornerUpRight
-                className=" cursor-pointer rounded bg-zinc-700 p-1 active:opacity-70"
-                size="20"
+              <DetailsAlert
+                trigger={
+                  <FiCornerUpRight
+                    className=" cursor-pointer rounded bg-zinc-700 p-1 active:opacity-70"
+                    size="20"
+                  />
+                }
+                successText="Understood"
+                image="https://img.freepik.com/free-vector/electric-car-concept-illustration_114360-1161.jpg?size=626&ext=jpg&ga=GA1.1.1214943181.1703785948&semt=ais"
+                title="Station Info"
+                description={
+                  <div className="flex flex-col gap-8">
+                    <p className="flex items-center gap-2">
+                      <span className="text-2xl font-bold tracking-tight text-white">
+                        M4E-COMROD, Warsaw
+                      </span>
+                      <Badge className="bg-cyan-500 ">Poland</Badge>
+                    </p>
+                    <span className="text-gray-400">
+                      <strong>Supercharged Station</strong>
+                      This particular stations is a supercharged station with a
+                      power output of 120kW. And with this you can charge your
+                      car in 30 minutes. But remember that the charging time
+                      depends on the battery capacity of your car.
+                    </span>
+                    <div className="flex justify-between">
+                      <div className="flex flex-col gap-1 text-white">
+                        <span className="text-xs  text-gray-400">Model</span>
+                        <span className="font-semibold">Tesla 3S</span>
+                      </div>
+                      <div className="flex flex-col gap-1 text-white">
+                        <span className="text-xs text-gray-400 ">
+                          Model Year
+                        </span>
+                        <span className="font-semibold">2017</span>
+                      </div>
+                      <div className="flex flex-col gap-1 text-white">
+                        <span className="text-xs text-gray-400">Weight</span>
+                        <span className="font-semibold ">1.3 Tons</span>
+                      </div>
+                      <div className="flex flex-col gap-1 text-white">
+                        <span className="text-xs text-gray-400">Mileage</span>
+                        <span className="font-semibold ">12000 Km</span>
+                      </div>
+                    </div>
+                  </div>
+                }
               />
             </div>
           </div>
