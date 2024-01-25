@@ -3,6 +3,7 @@ import LocationIcon from "@/assets/images/location.png";
 import Image from "next/image";
 import SearchIcon from "@/assets/images/search.png";
 import StationsCarousel from "./stations-carousel";
+import WorldMap from "@/assets/svg/Blank World Map.svg";
 
 function Content() {
   return (
@@ -36,10 +37,11 @@ function Content() {
           />
         </div>
       </section>
-      <section className="animate__animated animate__fadeInUp  animate_delay-500 flex justify-center ">
+      <section className="animate__animated animate__fadeIn  animate_delay-500 flex justify-center ">
         <Image
           className="rounded-2xl"
-          src="https://img.freepik.com/free-vector/worldwide-global-map-outline-black-background_1017-46153.jpg?w=1800&t=st=1706022868~exp=1706023468~hmac=4d529c179289ee86123f2955b798bf438d2a3c711cdca3b449e2c5ae96f16473"
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          src={WorldMap}
           alt="Location Icon"
           width={900}
           height={900}
