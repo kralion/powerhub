@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import LoginGradient from "@/assets/login-gradient.png";
 import AppleSvg from "@/assets/svg/apple.svg";
-import { useRouter } from "next/router";
 import GoogleSvg from "@/assets/svg/google.svg";
 import TwitterSvg from "@/assets/svg/twitter.svg";
 import { Button } from "@/components/ui/button";
@@ -10,9 +9,11 @@ import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/schemas/auth";
 import type { TLogInForm } from "@/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LockIcon, MailIcon } from "lucide-react";
+import { AlertCircle, LockIcon, MailIcon } from "lucide-react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function LoginPage() {
@@ -26,8 +27,13 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: TLogInForm) => {
-    alert(data);
-    await router.push("/powerhub");
+    await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+    // alert(data);
+    router.push("/powerhub");
   };
   return (
     <div
@@ -42,7 +48,7 @@ export default function LoginPage() {
         alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8 text-center">
+      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8 text-left">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"
@@ -68,7 +74,10 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col  gap-4"
+        >
           <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
             <MailIcon size={20} className="text-zinc-600" />
             <Input
@@ -78,6 +87,12 @@ export default function LoginPage() {
               placeholder="Email"
             />
           </div>
+          {errors.email && (
+            <div className="flex items-center gap-1 text-xs text-rose-500">
+              <AlertCircle size={15} />
+              {errors.email.message}
+            </div>
+          )}
           <div className="relative flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-slate-100 py-0 pl-4">
             <LockIcon size={20} className="text-zinc-600" />
             <Input
@@ -87,6 +102,12 @@ export default function LoginPage() {
               placeholder="Password"
             />
           </div>
+          {errors.password && (
+            <div className="flex items-center gap-1 text-xs text-rose-500">
+              <AlertCircle size={15} />
+              {errors.password.message}
+            </div>
+          )}
 
           <div className="flex items-center justify-between gap-3">
             <Button className="w-full rounded-sm">

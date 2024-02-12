@@ -8,6 +8,7 @@ import { BsCalendarMinusFill } from "react-icons/bs";
 import { GoHomeFill } from "react-icons/go";
 import { HiChartPie, HiClock } from "react-icons/hi";
 import { RiSettingsFill } from "react-icons/ri";
+import { signOut } from "next-auth/react";
 
 const navLink = [
   {
@@ -38,7 +39,8 @@ const navLink = [
 ];
 
 import Link from "next/link";
-function Navbar() {
+import type { Session } from "next-auth";
+function Navbar({ session }: { session: Session | null }) {
   const pathname = usePathname();
   return (
     <div className="flex h-screen flex-col justify-between ">
@@ -67,17 +69,18 @@ function Navbar() {
           </Avatar>
           <p className="flex flex-col">
             <span className=" text-sm font-medium leading-tight text-white">
-              Jhon Ferreiros
+              {session?.user.name}
             </span>
             <span className=" text-xs text-slate-300">Tesla Model 3</span>
           </p>
         </div>
-        <Link href="/login">
-          <button className="flex items-center gap-3 text-sm text-slate-300 duration-150 hover:text-rose-500 active:opacity-60 ">
-            <BiSolidLogOut size={20} />
-            Log out
-          </button>
-        </Link>
+        <button
+          onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
+          className="group flex items-center gap-3 text-sm text-slate-300 duration-150 hover:text-rose-500 active:opacity-60 "
+        >
+          <BiSolidLogOut size={20} />
+          Log out
+        </button>
       </section>
     </div>
   );

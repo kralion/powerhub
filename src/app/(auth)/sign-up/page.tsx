@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import LoginGradient from "@/assets/login-gradient.png";
-import { LockIcon, MailIcon } from "lucide-react";
+import { LockIcon, MailIcon, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -40,7 +40,7 @@ export default function SignUpPage() {
         alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8 text-center">
+      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"
@@ -68,18 +68,34 @@ export default function SignUpPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <div className="flex justify-between gap-3">
-            <Input
-              {...register("firstName")}
-              type="text"
-              className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100 text-zinc-500"
-              placeholder="First Name"
-            />
-            <Input
-              {...register("lastName")}
-              type="text"
-              className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100  text-zinc-500"
-              placeholder="Last Name"
-            />
+            <div className="flex w-1/2 flex-col gap-2">
+              <Input
+                {...register("firstName")}
+                type="text"
+                className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100 text-zinc-500"
+                placeholder="First Name"
+              />
+              {errors.firstName && (
+                <div className="flex items-center gap-1 text-xs text-rose-500">
+                  <AlertCircle size={15} />
+                  {errors.firstName.message}
+                </div>
+              )}
+            </div>
+            <div className="flex w-1/2 flex-col gap-1">
+              <Input
+                {...register("lastName")}
+                type="text"
+                className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100  text-zinc-500"
+                placeholder="Last Name"
+              />
+              {errors.lastName && (
+                <div className="flex items-center gap-1 text-xs text-rose-500">
+                  <AlertCircle size={15} />
+                  {errors.lastName.message}
+                </div>
+              )}
+            </div>
           </div>
           <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
             <MailIcon size={20} className="text-zinc-600" />
@@ -91,6 +107,13 @@ export default function SignUpPage() {
               placeholder="Email"
             />
           </div>
+          {errors.email && (
+            <div className="flex items-center gap-1 text-xs text-rose-500">
+              <AlertCircle size={15} />
+              {errors.email.message}
+            </div>
+          )}
+
           <div className="relative flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-slate-100 py-0 pl-4">
             <LockIcon size={20} className="text-zinc-600" />
             <Input
@@ -100,6 +123,12 @@ export default function SignUpPage() {
               placeholder="Password"
             />
           </div>
+          {errors.password && (
+            <div className="flex items-center gap-1 text-xs text-rose-500">
+              <AlertCircle size={15} />
+              {errors.password.message}
+            </div>
+          )}
           <div className="my-2 flex items-center gap-1">
             <hr className="w-1/2 rounded border-[1px] border-zinc-200" /> or
             <hr className="w-1/2 rounded border-[1px] border-zinc-200" />

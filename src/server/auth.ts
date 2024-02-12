@@ -5,7 +5,7 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
-
+import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/env.mjs";
 import { db } from "@/server/db";
 
@@ -50,6 +50,37 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
+    }),
+
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "albert@gmail.com",
+        },
+        password: {
+          label: "Password",
+          type: "password",
+          placeholder: "********",
+        },
+      },
+      async authorize(credentials, req) {
+        const user = {
+          id: "1",
+          name: "Albert",
+          email: "albert@gmail.com",
+          password: "123456",
+        };
+        if (user && user.password === credentials?.password) {
+          console.log("Este es el usuario", user);
+          return Promise.resolve(user);
+        } else {
+          alert("Usuario o contraseña incorrectos");
+          return Promise.resolve(null);
+        }
+      },
     }),
     /**
      * ...add more providers here.
