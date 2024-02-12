@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+"use client";
 import React from "react";
 import LoginGradient from "@/assets/login-gradient.png";
 import { LockIcon, MailIcon } from "lucide-react";
@@ -9,8 +10,23 @@ import Image from "next/image";
 import AppleSvg from "@/assets/svg/apple.svg";
 import GoogleSvg from "@/assets/svg/google.svg";
 import TwitterSvg from "@/assets/svg/twitter.svg";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema } from "@/schemas/auth";
+import type { TSignUpForm } from "@/types/auth";
 
-export default function LoginPage() {
+export default function SignUpPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TSignUpForm>({
+    resolver: zodResolver(signUpSchema),
+  });
+
+  const onSubmit = (data: TSignUpForm) => {
+    console.log(data);
+  };
   return (
     <div
       className="flex min-h-screen  w-screen flex-col items-center justify-center bg-cover bg-center"
@@ -45,14 +61,16 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <div className="flex justify-between gap-3">
             <Input
+              {...register("firstName")}
               type="text"
               className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100 text-zinc-500"
-              placeholder="Name"
+              placeholder="First Name"
             />
             <Input
+              {...register("lastName")}
               type="text"
               className="rounded-md border-2 border-zinc-200 bg-transparent bg-zinc-100  text-zinc-500"
               placeholder="Last Name"
@@ -61,14 +79,16 @@ export default function LoginPage() {
           <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
             <MailIcon size={20} className="text-zinc-600" />
             <Input
+              {...register("email")}
               type="email"
-              className=" border-none bg-transparent text-zinc-500"
+              className=" border-none text-zinc-500"
               placeholder="Email"
             />
           </div>
           <div className="relative flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-slate-100 py-0 pl-4">
             <LockIcon size={20} className="text-zinc-600" />
             <Input
+              {...register("password")}
               type="password"
               className="w-96 border-none bg-transparent text-zinc-500"
               placeholder="Password"
@@ -89,7 +109,10 @@ export default function LoginPage() {
               <Image src={TwitterSvg} width={20} height={20} alt="apple" />
             </Button>
           </div>
-          <Button className="mt-10 rounded-md border-2 border-zinc-100  p-3 font-semibold  ">
+          <Button
+            type="submit"
+            className="mt-10 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
+          >
             Register
           </Button>
         </form>
