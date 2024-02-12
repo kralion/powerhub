@@ -14,6 +14,9 @@ const config = {
       {
         hostname: "img.freepik.com",
       },
+      {
+        hostname: "cdn-icons-png.flaticon.com",
+      },
     ],
   },
 };

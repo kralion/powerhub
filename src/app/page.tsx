@@ -18,7 +18,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
             className="flex max-w-xs flex-col gap-4 rounded-xl border-2 border-white/10 bg-white/10 p-4 duration-300 hover:bg-white/20"
-            href="/powerhub"
+            href="/login"
           >
             <h3 className="text-2xl font-bold">Dashboard →</h3>
             <div className="text-lg">

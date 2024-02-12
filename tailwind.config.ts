@@ -18,6 +18,8 @@ export default {
     extend: {
       colors: {
         border: "hsl(var(--border))",
+        purpleneon: "#6053ED",
+        greenneon: "#30FFFF",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
