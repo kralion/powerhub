@@ -129,6 +129,15 @@ export default function LoginPage() {
           </Button>
         </form>
       </div>
+      <div className="mt-4 text-xs text-zinc-300">
+        <span>
+          Email: <strong>albert@gmail.com</strong>
+        </span>
+        <span> | </span>{" "}
+        <span>
+          Password: <strong>123456</strong>
+        </span>
+      </div>
     </div>
   );
 }
