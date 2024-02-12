@@ -42,12 +42,17 @@ export default function SignUpPage() {
     >
       <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8 text-center">
         <div className=" flex flex-col items-center justify-center gap-2">
-          <Image
-            src="https://cdn-icons-png.flaticon.com/128/11965/11965121.png"
-            width={100}
-            height={100}
-            alt="logo"
-          />
+          <Link
+            href="/"
+            className="duration-200 hover:scale-105 active:opacity-70"
+          >
+            <Image
+              src="https://cdn-icons-png.flaticon.com/128/11965/11965121.png"
+              width={100}
+              height={100}
+              alt="logo"
+            />
+          </Link>
           <span className="text-2xl font-semibold text-black">
             Create an account
           </span>
@@ -78,10 +83,11 @@ export default function SignUpPage() {
           </div>
           <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
             <MailIcon size={20} className="text-zinc-600" />
+
             <Input
               {...register("email")}
-              type="email"
-              className=" border-none text-zinc-500"
+              type="text"
+              className="w-96 border-none bg-transparent text-zinc-500"
               placeholder="Email"
             />
           </div>
