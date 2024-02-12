@@ -3,7 +3,7 @@ import React from "react";
 
 function Header() {
   return (
-    <Link href="#">
+    <Link href="/">
       <p className="flex items-center  tracking-wide">
         <span className="text-2xl font-bold text-[#6053ED]">power</span>
         <span className="text-2xl font-bold text-[#30FFFF]">hub</span>
