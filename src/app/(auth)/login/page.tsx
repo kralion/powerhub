@@ -1,21 +1,22 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
 import LoginGradient from "@/assets/login-gradient.png";
-import { AlertCircle, LockIcon, MailIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import AppleSvg from "@/assets/svg/apple.svg";
+import { useRouter } from "next/router";
 import GoogleSvg from "@/assets/svg/google.svg";
 import TwitterSvg from "@/assets/svg/twitter.svg";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/schemas/auth";
 import type { TLogInForm } from "@/types/auth";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LockIcon, MailIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 export default function LoginPage() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,8 +25,9 @@ export default function LoginPage() {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data: TLogInForm) => {
+  const onSubmit = async (data: TLogInForm) => {
     alert(data);
+    await router.push("/powerhub");
   };
   return (
     <div
