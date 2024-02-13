@@ -100,7 +100,7 @@ export default function StationDrawer({
           <DrawerFooter>
             <Button
               onClick={() =>
-                toast("Charging Book created         ", {
+                toast("Charging Book created", {
                   description: "For, December 03, 2023 at 9:00 AM",
                   position: "top-right",
                   duration: 2000,

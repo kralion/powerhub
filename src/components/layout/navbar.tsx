@@ -75,7 +75,11 @@ function Navbar({ session }: { session: Session | null }) {
           </p>
         </div>
         <button
-          onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
+          onClick={() =>
+            signOut({
+              callbackUrl: "/login",
+            })
+          }
           className="group flex items-center gap-3 text-sm text-slate-300 duration-150 hover:text-rose-500 active:opacity-60 "
         >
           <BiSolidLogOut size={20} />

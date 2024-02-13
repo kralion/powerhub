@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import LoginGradient from "@/assets/login-gradient.png";
-import { LockIcon, MailIcon, AlertCircle } from "lucide-react";
+import { LockIcon, MailIcon, AlertCircle, Loader, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -14,8 +14,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/schemas/auth";
 import type { TSignUpForm } from "@/types/auth";
-
+import { useRouter } from "next/navigation";
 export default function SignUpPage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -25,7 +28,13 @@ export default function SignUpPage() {
   });
 
   const onSubmit = (data: TSignUpForm) => {
+    setIsLoading(true);
     console.log(data);
+    setIsLoading(false);
+    setIsSuccess(true);
+    setTimeout(() => {
+      // router.push("/login");
+    }, 1000);
   };
   return (
     <div
@@ -59,7 +68,10 @@ export default function SignUpPage() {
           <div className="text-sm text-zinc-600">
             <span>Already have an account?</span>
             <Link href="/login">
-              <Button variant="link" className="px-1 text-black">
+              <Button
+                variant="link"
+                className="px-1 text-black underline duration-200 hover:opacity-50"
+              >
                 Log In
               </Button>
             </Link>
@@ -76,7 +88,7 @@ export default function SignUpPage() {
                 placeholder="First Name"
               />
               {errors.firstName && (
-                <div className="flex items-center gap-1 text-xs text-rose-500">
+                <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
                   <AlertCircle size={15} />
                   {errors.firstName.message}
                 </div>
@@ -90,7 +102,7 @@ export default function SignUpPage() {
                 placeholder="Last Name"
               />
               {errors.lastName && (
-                <div className="flex items-center gap-1 text-xs text-rose-500">
+                <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
                   <AlertCircle size={15} />
                   {errors.lastName.message}
                 </div>
@@ -108,7 +120,7 @@ export default function SignUpPage() {
             />
           </div>
           {errors.email && (
-            <div className="flex items-center gap-1 text-xs text-rose-500">
+            <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />
               {errors.email.message}
             </div>
@@ -124,7 +136,7 @@ export default function SignUpPage() {
             />
           </div>
           {errors.password && (
-            <div className="flex items-center gap-1 text-xs text-rose-500">
+            <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />
               {errors.password.message}
             </div>
@@ -143,9 +155,16 @@ export default function SignUpPage() {
           </div>
           <Button
             type="submit"
+            disabled={isLoading}
             className="mt-10 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
           >
-            Register
+            {isSuccess ? (
+              <Check className="text-green-500 duration-100 animate-in zoom-in-50" />
+            ) : isLoading ? (
+              <Loader className="animate-spin" />
+            ) : (
+              "Register"
+            )}
           </Button>
         </form>
       </div>

@@ -9,12 +9,15 @@ import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/schemas/auth";
 import type { TLogInForm } from "@/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AlertCircle, LockIcon, MailIcon } from "lucide-react";
+import { AlertCircle, LockIcon, MailIcon, Loader, Check } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+
+import { useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -25,15 +28,28 @@ export default function LoginPage() {
   } = useForm<TLogInForm>({
     resolver: zodResolver(loginSchema),
   });
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const onSubmit = async (data: TLogInForm) => {
-    await signIn("credentials", {
+    setIsLoading(true);
+    const result = await signIn("credentials", {
       email: data.email,
       password: data.password,
       redirect: false,
     });
-    // alert(data);
-    router.push("/powerhub");
+    if (result?.error) {
+      setIsLoading(false);
+      toast("Invalid Credentials", {
+        description: "Please check your email and password and try again",
+        position: "top-center",
+        duration: 3000,
+      });
+    } else {
+      setIsSuccess(true);
+      setTimeout(() => {
+        router.push("/powerhub");
+      }, 1000);
+    }
   };
   return (
     <div
@@ -67,7 +83,10 @@ export default function LoginPage() {
           <div className="text-sm text-zinc-600">
             Don&apos;t have an account?{" "}
             <Link href="/sign-up">
-              <Button variant="link" className="px-1 text-black">
+              <Button
+                variant="link"
+                className="px-1 text-black underline duration-200 hover:opacity-50"
+              >
                 Sign up
               </Button>
             </Link>
@@ -83,12 +102,12 @@ export default function LoginPage() {
             <Input
               {...register("email")}
               type="email"
-              className="w-96 border-none bg-transparent text-zinc-500"
+              className="w-96 border-none bg-transparent text-zinc-500 focus:border-none focus-visible:bg-transparent focus-visible:ring-0"
               placeholder="Email"
             />
           </div>
           {errors.email && (
-            <div className="flex items-center gap-1 text-xs text-rose-500">
+            <div className="flex items-center gap-1  text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />
               {errors.email.message}
             </div>
@@ -103,7 +122,7 @@ export default function LoginPage() {
             />
           </div>
           {errors.password && (
-            <div className="flex items-center gap-1 text-xs text-rose-500">
+            <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />
               {errors.password.message}
             </div>
@@ -123,9 +142,16 @@ export default function LoginPage() {
 
           <Button
             type="submit"
+            disabled={isLoading}
             className="mt-10 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
           >
-            Login
+            {isSuccess ? (
+              <Check className="text-green-500 duration-100 animate-in zoom-in-50" />
+            ) : isLoading ? (
+              <Loader className="animate-spin" />
+            ) : (
+              "Log In"
+            )}
           </Button>
         </form>
       </div>
