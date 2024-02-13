@@ -48,7 +48,7 @@ export default function LoginPage() {
         alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8 text-left">
+      <div className="space-y-8 rounded-lg bg-gradient-to-b from-white/60  to-white/80 p-8 text-left  shadow-xl shadow-indigo-800 duration-200 animate-in fade-in fill-mode-both ">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"

@@ -40,7 +40,7 @@ export default function SignUpPage() {
         alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg  bg-gradient-to-b from-white/60  to-white/80 p-8">
+      <div className="space-y-8 rounded-lg bg-gradient-to-b from-white/60 to-white/80 p-8  shadow-xl shadow-indigo-800  duration-200 animate-in fade-in fill-mode-both">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"
@@ -129,10 +129,7 @@ export default function SignUpPage() {
               {errors.password.message}
             </div>
           )}
-          <div className="my-2 flex items-center gap-1">
-            <hr className="w-1/2 rounded border-[1px] border-zinc-200" /> or
-            <hr className="w-1/2 rounded border-[1px] border-zinc-200" />
-          </div>
+
           <div className="flex items-center justify-between gap-3">
             <Button className="w-full rounded-sm">
               <Image src={AppleSvg} width={20} height={20} alt="apple" />
