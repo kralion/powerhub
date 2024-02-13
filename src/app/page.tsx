@@ -4,6 +4,7 @@ import { CreatePost } from "@/components/create-car";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import { Badge } from "@/components/ui/badge";
+import { ChevronRight, MoveRight } from "lucide-react";
 
 export default async function Home() {
   const hello = await api.cars.hello.query({ text: "from tRPC" });
@@ -17,10 +18,16 @@ export default async function Home() {
         </h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl border-2 border-white/10 bg-white/10 p-4 duration-300 hover:bg-white/20"
+            className="group flex max-w-xs flex-col gap-4 rounded-xl border-2 border-white/10 bg-white/10 p-4 duration-300 hover:bg-white/20"
             href="/login"
           >
-            <h3 className="text-2xl font-bold">Dashboard →</h3>
+            <div className="flex items-center gap-2 text-2xl font-bold">
+              Dashboard
+              <MoveRight
+                size={20}
+                className="duration-300 group-hover:translate-x-3"
+              />
+            </div>
             <div className="text-lg">
               Capabilities and status of the actual production release of{" "}
               <Badge
@@ -33,11 +40,17 @@ export default async function Home() {
             </div>
           </Link>
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl border-2 border-white/10 bg-white/10 p-4 duration-300 hover:bg-white/20"
+            className="group flex max-w-xs flex-col gap-4 rounded-xl border-2 border-white/10 bg-white/10 p-4 duration-300 hover:bg-white/20"
             href="https://github.com/Dv-Joan/powerhub"
             target="_blank"
           >
-            <h3 className="text-2xl font-bold">Repository →</h3>
+            <div className="flex items-center gap-2 text-2xl font-bold">
+              Repository
+              <MoveRight
+                size={20}
+                className="duration-300 group-hover:translate-x-3"
+              />
+            </div>
             <div className="text-lg">
               Releases of Powerhub and its new features, contributions are
               welcome! on{" "}
