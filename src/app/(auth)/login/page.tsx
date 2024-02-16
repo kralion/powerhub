@@ -64,7 +64,7 @@ export default function LoginPage() {
         alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg bg-gradient-to-b from-white/60  to-white/80 p-8 text-left  shadow-xl shadow-indigo-800 duration-200 animate-in fade-in fill-mode-both ">
+      <div className="space-y-8 rounded-lg bg-gradient-to-b from-white/60   to-white/80 p-8 text-left  shadow-xl shadow-indigo-800 duration-200 animate-in fade-in fill-mode-both ">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"
@@ -93,41 +93,49 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col  gap-4"
-        >
-          <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
-            <MailIcon size={20} className="text-zinc-600" />
-            <Input
-              {...register("email")}
-              type="email"
-              className="w-96 border-none bg-transparent text-zinc-500 focus:border-none focus-visible:bg-transparent focus-visible:ring-0"
-              placeholder="Email"
-            />
-          </div>
-          {errors.email && (
-            <div className="flex items-center gap-1  text-xs text-rose-500 duration-300 animate-in fade-in-10">
-              <AlertCircle size={15} />
-              {errors.email.message}
+        <form onSubmit={handleSubmit(onSubmit)} className=" flex-col gap-4">
+          <div className="mb-4">
+            <div className="relative mb-2 w-96 ">
+              <MailIcon
+                size={20}
+                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
+              />
+              <Input
+                {...register("email")}
+                type="email"
+                className="border-2 border-none  border-zinc-200 bg-transparent bg-zinc-100 pl-10 text-zinc-500"
+                placeholder="Email"
+              />
             </div>
-          )}
-          <div className="relative flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-slate-100 py-0 pl-4">
-            <LockIcon size={20} className="text-zinc-600" />
-            <Input
-              {...register("password")}
-              type="password"
-              className="w-96 border-none bg-transparent text-zinc-500"
-              placeholder="Password"
-            />
-          </div>
-          {errors.password && (
-            <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
-              <AlertCircle size={15} />
-              {errors.password.message}
-            </div>
-          )}
 
+            {errors.email && (
+              <div className="mb-4 flex items-center gap-1  text-xs text-rose-500 duration-300 animate-in fade-in-10">
+                <AlertCircle size={15} />
+                {errors.email.message}
+              </div>
+            )}
+          </div>
+          <div className="mb-4">
+            <div className="relative mb-2 w-full  ">
+              <LockIcon
+                size={20}
+                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
+              />
+              <Input
+                {...register("password")}
+                type="email"
+                className="border-2 border-none border-zinc-200 bg-transparent bg-zinc-100 pl-10 text-zinc-500"
+                placeholder="Password"
+              />
+            </div>
+
+            {errors.password && (
+              <div className="mb-4 flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
+                <AlertCircle size={15} />
+                {errors.password.message}
+              </div>
+            )}
+          </div>
           <div className="flex items-center justify-between gap-3">
             <Button className="w-full rounded-sm">
               <Image src={AppleSvg} width={20} height={20} alt="apple" />
@@ -143,7 +151,7 @@ export default function LoginPage() {
           <Button
             type="submit"
             disabled={isLoading}
-            className="mt-10 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
+            className="mt-10 w-96 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
           >
             {isSuccess ? (
               <Check className="text-green-500 duration-100 animate-in zoom-in-50" />
