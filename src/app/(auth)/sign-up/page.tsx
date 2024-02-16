@@ -109,16 +109,14 @@ export default function SignUpPage() {
               )}
             </div>
           </div>
-          <div className="relative  flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-zinc-100 py-0 pl-4">
-            <MailIcon size={20} className="text-zinc-600" />
 
-            <Input
-              {...register("email")}
-              type="text"
-              className="w-96 border-none bg-transparent text-zinc-500"
-              placeholder="Email"
-            />
-          </div>
+          <Input
+            {...register("email")}
+            type="text"
+            className=" border-2 border-zinc-200 bg-slate-100   text-zinc-500"
+            placeholder="Email"
+          />
+
           {errors.email && (
             <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />
@@ -126,15 +124,12 @@ export default function SignUpPage() {
             </div>
           )}
 
-          <div className="relative flex items-center gap-2 rounded-md  border-2 border-zinc-200 bg-slate-100 py-0 pl-4">
-            <LockIcon size={20} className="text-zinc-600" />
-            <Input
-              {...register("password")}
-              type="password"
-              className="w-96 border-none bg-transparent text-zinc-500"
-              placeholder="Password"
-            />
-          </div>
+          <Input
+            {...register("password")}
+            type="password"
+            className=" border-2 border-zinc-200 bg-slate-100   text-zinc-500"
+            placeholder="Password"
+          />
           {errors.password && (
             <div className="flex items-center gap-1 text-xs text-rose-500 duration-300 animate-in fade-in-10">
               <AlertCircle size={15} />

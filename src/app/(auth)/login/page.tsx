@@ -97,7 +97,7 @@ export default function LoginPage() {
           <div className="mb-4">
             <div className="relative mb-2 w-96 ">
               <MailIcon
-                size={20}
+                size={16}
                 className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
               />
               <Input
@@ -118,7 +118,7 @@ export default function LoginPage() {
           <div className="mb-4">
             <div className="relative mb-2 w-full  ">
               <LockIcon
-                size={20}
+                size={16}
                 className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
               />
               <Input
