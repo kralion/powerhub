@@ -123,7 +123,7 @@ export default function LoginPage() {
               />
               <Input
                 {...register("password")}
-                type="email"
+                type="password"
                 className="border-2 border-none border-zinc-200 bg-transparent bg-zinc-100 pl-10 text-zinc-500"
                 placeholder="Password"
               />

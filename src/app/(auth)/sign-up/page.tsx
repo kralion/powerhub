@@ -1,24 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
-import React, { useState } from "react";
 import LoginGradient from "@/assets/login-gradient.png";
-import { LockIcon, MailIcon, AlertCircle, Loader, Check } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import AppleSvg from "@/assets/svg/apple.svg";
 import GoogleSvg from "@/assets/svg/google.svg";
 import TwitterSvg from "@/assets/svg/twitter.svg";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { signUpSchema } from "@/schemas/auth";
 import type { TSignUpForm } from "@/types/auth";
-import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AlertCircle, Check, Loader } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -112,7 +110,7 @@ export default function SignUpPage() {
 
           <Input
             {...register("email")}
-            type="text"
+            type="email"
             className=" border-2 border-zinc-200 bg-slate-100   text-zinc-500"
             placeholder="Email"
           />

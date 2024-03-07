@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="flex">
+    <div className="flex ">
       <Content />
       <Stats />
     </div>

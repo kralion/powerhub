@@ -39,15 +39,13 @@ function Content() {
       </section>
       <section className="animate__animated animate__fadeIn  animate_delay-500 flex justify-center ">
         <Image
-          className="rounded-2xl"
+          className="h-auto w-auto rounded-2xl"
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src={WorldMap}
           alt="Location Icon"
-          width={900}
-          height={900}
         />
       </section>
-      <section className="space-y-4 px-16">
+      <section className="space-y-4 px-9">
         <h3 className="text-sm">12 Stations Nearby</h3>
         <StationsCarousel />
       </section>

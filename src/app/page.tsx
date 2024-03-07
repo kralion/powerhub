@@ -56,7 +56,7 @@ export default async function Home() {
               welcome! on{" "}
               <Badge
                 className={
-                  " border-slate-500 bg-gradient-to-r from-slate-400 via-zinc-500 to-black text-white"
+                  " border-zinc-800 bg-gradient-to-r from-zinc-700 to-zinc-800 text-white"
                 }
               >
                 Github
