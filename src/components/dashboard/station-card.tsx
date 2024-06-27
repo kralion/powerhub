@@ -16,7 +16,7 @@ function StationCard({
   distance,
 }: Station) {
   return (
-    <div className="w-56 space-y-4 rounded-2xl bg-[#212121] p-3 text-sm duration-150 hover:bg-[#2D2D2D]">
+    <div className="w-56 space-y-4 rounded-2xl bg-gray-300/80 p-3 text-sm duration-150 hover:bg-[#2D2D2D] dark:bg-[#212121]">
       <div className="flex justify-between">
         <Image src={StationIcon} alt="station" width={50} height={50} />
         <DetailsAlert

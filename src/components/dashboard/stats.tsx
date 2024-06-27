@@ -6,7 +6,7 @@ import { MoreDetails } from "./more-details";
 
 function Stats() {
   return (
-    <div className=" rounded-2xl bg-[#212121]  p-3  text-white  ">
+    <div className=" rounded-2xl bg-gray-300/90 p-3 dark:bg-[#212121]   ">
       <p className="flex justify-between">
         <span>Vehicle Stats</span>
         <MoreDetails
@@ -54,7 +54,7 @@ function Stats() {
             }
           />
         </div>
-        <div className=" rounded-2xl bg-[#2D2D2D] p-2 text-2xl text-white">
+        <div className=" rounded-2xl bg-gray-400/50 p-2 text-2xl dark:bg-[#2D2D2D] ">
           <EVBarChart />
         </div>
       </section>

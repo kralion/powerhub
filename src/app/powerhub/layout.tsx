@@ -5,7 +5,7 @@ import "animate.css";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`flex items-start bg-zinc-900 ${GeistSans.className}`}>
+    <div className={` ${GeistSans.className}`}>
       <Sidebar />
       {children}
     </div>

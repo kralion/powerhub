@@ -29,7 +29,7 @@ const data = [
 
 export default function EVBarChart() {
   return (
-    <ResponsiveContainer width={240} height={280}>
+    <ResponsiveContainer className="h-[280px] w-full lg:w-[240px]">
       <BarChart barSize={15} data={data}>
         <XAxis
           style={{

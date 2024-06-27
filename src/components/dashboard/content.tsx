@@ -7,8 +7,8 @@ import WorldMap from "@/assets/svg/Blank World Map.svg";
 
 function Content() {
   return (
-    <div className=" space-y-8 p-5 text-2xl text-white ">
-      <section className="flex items-center justify-between ">
+    <div className=" space-y-8 p-5 text-2xl  ">
+      <section className="flex flex-col items-center justify-between gap-10 lg:flex-row lg:gap-0">
         <div className="flex items-center gap-2 ">
           <div>
             <Image

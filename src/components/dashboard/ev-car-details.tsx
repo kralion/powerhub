@@ -44,18 +44,20 @@ function EVCarDetails({
         title="EV Car Information "
         description={
           <div className="flex flex-col gap-8">
-            <span className="text-gray-400">
+            <span className="text-gray-800 dark:text-gray-400">
               <strong>The Tesla Model 3</strong> is a battery electric mid-size
               sedan with a fastback body style built by Tesla, Inc. since 2017.
               The Model 3 was marketed as being more affordable to more people
               than previous models by Tesla.
             </span>
             <div className="flex justify-between">
-              <div className="flex flex-col gap-1 text-white">
-                <span className="text-xs  text-gray-400">Model</span>
+              <div className="flex flex-col gap-1 ">
+                <span className="text-xs  text-gray-800 dark:text-gray-400">
+                  Model
+                </span>
                 <span className="font-semibold">Tesla 3S</span>
               </div>
-              <div className="flex flex-col gap-1 text-white">
+              <div className="flex flex-col gap-1 ">
                 <span className="text-xs text-gray-400 ">Model Year</span>
                 <span className="font-semibold">2017</span>
               </div>
@@ -98,18 +100,22 @@ function EVCarDetails({
       </div>
       <div className="flex gap-3">
         <div className="flex w-[120px] flex-col gap-3">
-          <div className="rounded-2xl bg-[#2D2D2D] ">
+          <div className="rounded-2xl bg-gray-400/50 dark:bg-[#2D2D2D] ">
             <p className="flex flex-col gap-1 p-3">
-              <span className="text-xs text-gray-400">Avg Energy</span>
+              <span className="text-xs text-gray-800 dark:text-gray-400">
+                Avg Energy
+              </span>
               <span className="text-md">
                 <span className="text-xl font-semibold">{avgEnergy}</span> wh
               </span>
             </p>
             <AvgEnergyGraph />
           </div>
-          <div className="rounded-2xl  bg-[#2D2D2D] p-3">
+          <div className="rounded-2xl  bg-gray-400/50 p-3 dark:bg-[#2D2D2D]">
             <p className="space-y-2">
-              <span className="text-xs text-gray-400">Battery Status</span>
+              <span className="text-xs text-gray-800 dark:text-gray-400">
+                Battery Status
+              </span>
               <div className="flex items-center">
                 <div>
                   <Image src={ElectricIcon} alt="next" width={20} height={20} />
@@ -120,9 +126,11 @@ function EVCarDetails({
             </p>
           </div>
         </div>
-        <div className="row-span-2 w-full rounded-2xl bg-[#2D2D2D] ">
+        <div className="row-span-2 w-full rounded-2xl bg-gray-400/50 dark:bg-[#2D2D2D]">
           <div className="flex flex-col gap-1 p-3 ">
-            <span className=" text-xs text-gray-400">Nearby Station</span>
+            <span className=" text-xs text-gray-800 dark:text-gray-400">
+              Nearby Station
+            </span>
             <div className="flex  justify-between">
               <h3 className="text-xl">
                 <strong>{distance}</strong> km

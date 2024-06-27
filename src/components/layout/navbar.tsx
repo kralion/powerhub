@@ -43,7 +43,14 @@ import type { Session } from "next-auth";
 function Navbar({ session }: { session: Session | null }) {
   const pathname = usePathname();
   return (
-    <div className="flex h-screen flex-col justify-between ">
+    <div className=" hidden h-screen flex-col items-start justify-between bg-zinc-900 lg:flex">
+      <Link href="/">
+        <p className="flex items-center  text-2xl font-bold tracking-wide">
+          <span className=" text-[#6053ED]">power</span>
+          <span className=" text-[#30FFFF]">hub</span>
+          <span className=" text-[#30FFFF]">.</span>
+        </p>
+      </Link>
       <div className="space-y-8 text-[14px] text-slate-400">
         {navLink.map((link) => (
           <Link

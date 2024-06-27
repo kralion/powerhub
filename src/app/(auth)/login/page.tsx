@@ -53,18 +53,12 @@ export default function LoginPage() {
   };
   return (
     <div
-      className="flex min-h-screen  w-screen flex-col items-center justify-center bg-cover bg-center"
+      className=" flex h-[100vh] flex-col items-center justify-center bg-cover lg:min-h-screen  lg:p-0"
       style={{
         backgroundImage: `url(${LoginGradient.src})`,
-        backgroundPosition: "center",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
-      <div className="space-y-8 rounded-lg bg-gradient-to-b from-white/60   to-white/80 p-8 text-left  shadow-xl shadow-indigo-800 duration-200 animate-in fade-in fill-mode-both ">
+      <div className="mx-3 space-y-8 rounded-lg bg-gradient-to-b  from-white/60 to-white/80  text-left shadow-xl shadow-indigo-800  duration-200 animate-in fade-in fill-mode-both lg:mx-0 lg:p-8 ">
         <div className=" flex flex-col items-center justify-center gap-2">
           <Link
             href="/"
@@ -93,9 +87,12 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className=" flex-col gap-4">
-          <div className="mb-4">
-            <div className="relative mb-2 w-96 ">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="  w-96 flex-col gap-4"
+        >
+          <div className="mb-4 px-3 lg:px-0">
+            <div className="relative mb-2 ">
               <MailIcon
                 size={16}
                 className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
@@ -115,8 +112,8 @@ export default function LoginPage() {
               </div>
             )}
           </div>
-          <div className="mb-4">
-            <div className="relative mb-2 w-full  ">
+          <div className="mb-4 px-3 lg:px-0">
+            <div className="relative mb-2 ">
               <LockIcon
                 size={16}
                 className="absolute left-3 top-1/2 z-10 -translate-y-1/2 transform text-gray-400"
@@ -136,7 +133,7 @@ export default function LoginPage() {
               </div>
             )}
           </div>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-3 px-3 lg:px-0">
             <Button className="w-full rounded-sm">
               <Image src={AppleSvg} width={20} height={20} alt="apple" />
             </Button>
@@ -151,7 +148,7 @@ export default function LoginPage() {
           <Button
             type="submit"
             disabled={isLoading}
-            className="mt-10 w-96 rounded-md border-2 border-zinc-100  p-3 font-semibold  "
+            className="mt-10 w-full  rounded-md border-2 border-zinc-100  px-3  font-semibold lg:px-0"
           >
             {isSuccess ? (
               <Check className="text-green-500 duration-100 animate-in zoom-in-50" />

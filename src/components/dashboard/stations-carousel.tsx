@@ -30,8 +30,8 @@ export default function StationsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="bg-zinc-800" />
+      <CarouselNext className="bg-zinc-800" />
     </Carousel>
   );
 }
